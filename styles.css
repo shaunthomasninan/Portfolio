@@ -72,7 +72,7 @@ p { margin: 0 0 1em; }
 }
 .btn:hover { transform: translate(var(--tx, 0px), calc(var(--ty, 0px) - 2px)); box-shadow: 0 10px 30px -10px rgba(124, 156, 255, .6); }
 .btn-small { padding: .5rem 1.1rem; font-size: .88rem; }
-.btn-large { padding: 1rem 2rem; font-size: 1.1rem; }
+.btn-large { padding: 1rem clamp(1rem, 5vw, 2rem); font-size: clamp(.9rem, 4.4vw, 1.1rem); max-width: 100%; overflow-wrap: anywhere; }
 .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
 .btn-ghost:hover { border-color: var(--accent); box-shadow: none; background: rgba(124, 156, 255, .08); }
 
