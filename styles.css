@@ -291,6 +291,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 800px) {
+  .site-footer { justify-content: center; text-align: center; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .nav-toggle { display: block; }
   .nav-links {
