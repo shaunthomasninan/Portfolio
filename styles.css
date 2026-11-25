@@ -289,9 +289,71 @@ p { margin: 0 0 1em; }
 /* Hero stats shine */
 .stats strong { background: linear-gradient(120deg, var(--text), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
+/* ---------- Project cards link to case studies ---------- */
+.card-link { color: inherit; }
+.card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card-link:focus-visible { outline: none; }
+.project { cursor: pointer; }
+.project:focus-within { border-color: var(--accent); }
+.project:hover h3 { color: var(--accent); }
+.project h3 { transition: color .2s; }
+.project .more { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.1rem; font-size: .88rem; font-weight: 600; color: var(--accent); }
+.project .more i { font-style: normal; transition: transform .25s; }
+.project:hover .more i { transform: translateX(5px); }
+
+/* ---------- Project detail pages ---------- */
+.proj-hero { position: relative; z-index: 1; padding: clamp(3rem, 8vw, 5.5rem) 0 2.5rem; }
+.crumb { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: 1.75rem; color: var(--muted); font-size: .9rem; transition: color .2s; }
+.crumb:hover { color: var(--accent); }
+.proj-hero .badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.proj-hero h1 { font-size: clamp(2rem, 5.5vw, 3.6rem); font-weight: 700; margin-bottom: .6rem; overflow-wrap: anywhere; }
+.proj-hero .client { color: var(--accent-2); font-weight: 500; margin-bottom: 1.25rem; }
+.proj-hero .lead { margin-bottom: 1.5rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem 2rem; margin: 2.25rem 0 0; padding-top: 1.75rem; border-top: 1px solid var(--border); }
+.facts dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.facts dd { margin: .15rem 0 0; font-weight: 500; }
+
+.proj-section { padding: clamp(1.75rem, 4.5vw, 3rem) 0; }
+.proj-section .section-title { margin-bottom: 1.75rem; }
+.role-card { max-width: 75ch; }
+.role-card p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
+.module-grid h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+.module-grid p { margin: 0; color: var(--muted); font-size: .95rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.1rem; }
+.feature .num { display: block; margin-bottom: .6rem; font-size: .78rem; color: var(--accent); }
+.feature h3 { font-size: 1.02rem; margin-bottom: .45rem; }
+.feature p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+.steps { display: grid; gap: 1.5rem; }
+.steps li { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; }
+.steps li:not(:last-child)::before { content: ""; position: absolute; left: 20.5px; top: 42px; bottom: -1.5rem; width: 1px; background: var(--border); }
+.step-num {
+  position: relative; z-index: 1; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  font-size: .8rem; color: var(--accent); background: var(--bg-card); border: 1px solid var(--border);
+}
+.steps h3 { font-size: 1.05rem; margin: .5rem 0 .3rem; }
+.steps p { margin: 0; color: var(--muted); max-width: 65ch; }
+
+.highlights { max-width: 75ch; }
+.highlights li { position: relative; padding-left: 1.6rem; margin-bottom: .85rem; color: var(--muted); }
+.highlights li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+.proj-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.proj-nav a { display: flex; flex-direction: column; gap: .35rem; }
+.proj-nav .mono { font-size: .78rem; color: var(--muted); }
+.proj-nav strong { font-family: var(--font-head); font-size: 1.05rem; }
+.proj-nav .next { text-align: right; align-items: flex-end; }
+.proj-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 2.5rem 0 0; }
+.proj-missing { padding: clamp(4rem, 12vw, 8rem) 0; text-align: center; }
+.proj-missing h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+.proj-missing p { color: var(--muted); margin-bottom: 2rem; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 800px) {
   .site-footer { justify-content: center; text-align: center; }
+  .proj-nav { grid-template-columns: 1fr; }
+  .proj-nav .next { text-align: left; align-items: flex-start; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .nav-toggle { display: block; }
   .nav-links {
